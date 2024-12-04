@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidebar:React.FC = () => {
   return (
-    <div>Sidebar</div>
+    <div className='w-1/4 left-0 absolute bg-green-400'>Sidebar </div>
   )
 }
 

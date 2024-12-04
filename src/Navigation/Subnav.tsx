@@ -2,6 +2,8 @@ import React from 'react'
 import { BsFilterSquareFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import Categories from '../Sidebar/Categories/Categories';
+import Sidebar from '../Sidebar/Sidebar';
+
 const Subnav: React.FC = () => {
     return (
         <div>
@@ -14,9 +16,10 @@ const Subnav: React.FC = () => {
                     
                 </div>
             </div>
+            {/* .....side bar displayed here..... */}
             <div className='hidden md:flex'>
-            {/* <Sidebar/> */}
-            <Categories/>
+            <Sidebar/>
+            {/* <Categories/> */}
             
             </div>
         </div>
