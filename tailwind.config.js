@@ -4,8 +4,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  dark:'class',
   theme: {
     extend: {},
+    fontFamily: {
+      signature: ["Yuji Mai"],
+    }
   },
   plugins: [],
 }
