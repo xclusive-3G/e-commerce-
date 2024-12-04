@@ -6,7 +6,7 @@ import Subnav from './Navigation/Subnav';
 const App: React.FC = () => {
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-auto h-screen">
       <NavBar/>
       <Subnav/>
       <Products/>      

@@ -1,12 +1,15 @@
 import React from 'react'
 type InputProps = {
   placeholder?: string;
+  className?: string;
+  type?:string;
+  name?:string;
 };
 
 
-const Input: React.FC<InputProps> = ({placeholder}) => {
+const Input: React.FC<InputProps> = ({placeholder,className, type,name}) => {
   return (
-    <input type="text" placeholder={placeholder} className='px-3' />
+    <input type={type} placeholder={placeholder} className={className} name={name}  />
   )
 }
 

@@ -18,7 +18,7 @@ const NavBar: React.FC = () => {
                 </div>
                 {/* search input button */}
                 <div className='hidden md:flex'>
-                    <Input placeholder="search" />
+                    <Input placeholder="search" type='text' className='px-3 rounded-lg text-black  '/>
                     <Button value={<FaSearch size={20} className='' />}/>
                 </div>
 
