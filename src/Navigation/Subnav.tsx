@@ -7,7 +7,7 @@ const Subnav: React.FC = () => {
 
     return (
         <div className='w-auto'>
-            <div className=' justify-between flex  md:hidden dark:bg-gray-950 dark:text-white px-auto '>
+            <div className=' justify-between flex  md:hidden dark:bg-gray-950 dark:text-white px-2 '>
                 <div className='flex  cursor-pointer px-auto py-6'>
                     <span className=' text-lg font-semibold'>Filter</span>
                     <span><BsFilterSquareFill size={20} className=' m-1 ' /></span>
