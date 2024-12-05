@@ -1,20 +1,24 @@
 import React from 'react'
 import { BsFilterSquareFill } from "react-icons/bs";
-import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
+import SearchBar from '../Search/search';
 
 const Subnav: React.FC = () => {
-    return (
-        <div>
-            <div className=' justify-between flex  md:hidden'>
-                <div className='flex p-1 cursor-pointer'>
-                    <span className=' text-lg font-semibold'>Filter</span>
-                    <span><BsFilterSquareFill size={20} className='mx-2 mt-2 ' /></span>
-                </div>
-                <div className='p-4  flex cursor-pointer'>
-                    <li className='flex md:hidden mx-2'>
 
-                        <FaSearch size={20} className=' ' />
-                    </li>
+    return (
+        <div className='w-auto'>
+            <div className=' justify-between flex  md:hidden dark:bg-gray-950 dark:text-white px-auto '>
+                <div className='flex  cursor-pointer px-auto py-6'>
+                    <span className=' text-lg font-semibold'>Filter</span>
+                    <span><BsFilterSquareFill size={20} className=' m-1 ' /></span>
+                </div>
+                
+                <div className='px-auto py-6  flex cursor-pointer'>
+                <div className=' w-auto '>
+                        <SearchBar className=' w-32 rounded-md text-black '/>
+                </div>
+                
+                    
                     <FaShoppingCart size={20} className='mx-2' />
 
                 </div>

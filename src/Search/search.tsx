@@ -2,20 +2,24 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../store/productSlice';
 
-const SearchBar: React.FC = () => {
-  const dispatch = useDispatch();
+interface SearchInterFace{
+  className: string;
+}
 
+
+const SearchBar: React.FC<SearchInterFace> = ({className}) => {
+  const dispatch = useDispatch();
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchTerm(event.target.value));
   };
 
   return (
-    <div className="px-1 my-6">
+    <div className="">
       <input
         type="text"
         placeholder="Search products..."
         onChange={handleSearch}
-        className="w-full p-2 border rounded-md text-black hidden md:flex"
+        className={className}
       />
       
     </div>

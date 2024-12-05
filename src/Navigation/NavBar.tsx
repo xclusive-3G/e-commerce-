@@ -35,7 +35,10 @@ const NavBar: React.FC = () => {
                 {/* <Recommended/> */}
 
                 <div className='flex p-4'>
-                    <Search />
+                    <div className='py-6'>
+                    <Search className='w-full p-2 border rounded-md text-black hidden md:flex'/>
+
+                    </div>
                     {/* items on the left */}
                     <ul className='flex p-4 cursor-pointer m-2'>
                         
