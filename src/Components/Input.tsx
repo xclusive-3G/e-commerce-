@@ -1,13 +1,4 @@
-import React, { ChangeEvent } from 'react';
-
-type InputProps = {
-  placeholder?: string;
-  className?: string;
-  type?: string;
-  name?: string;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void; // Correct type
-  onClick?:()=>void
-};
+import { InputProps } from '../webData/Webdata';
 
 const Input: React.FC<InputProps> = ({ placeholder, className, type , name, onChange,onClick }) => {
   return (

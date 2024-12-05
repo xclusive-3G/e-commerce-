@@ -1,44 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
+import { createSlice } from '@reduxjs/toolkit';
+import { initialState } from '../webData/Webdata';
+import { fetchProducts } from '../webData/Webdata';
 // Define the async action to fetch products
-export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
-  const response = await axios.get('https://fakestoreapi.com/products');
-  return response.data;
-});
-
-// Product interface
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  rating: { rate: number; count: number };
-  category: string;
-}
-
-// Allowed sorting options
-type SortByOptions = 'price' | 'rating' | "men's clothing" | 'jewelery' | 'electronics' | "women's clothing";
-
-// Product state interface
-interface ProductState {
-  products: Product[];
-  searchTerm: string;
-  sortBy: SortByOptions;
-  currentPage: number;
-  itemsPerPage: number;
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-}
-
-// Initial state
-const initialState: ProductState = {
-  products: [],
-  searchTerm: '',
-  sortBy: 'price', // Default sorting by price
-  status: 'idle',
-  currentPage: 1,
-  itemsPerPage: 8,
-};
 
 // Product slice
 const productSlice = createSlice({

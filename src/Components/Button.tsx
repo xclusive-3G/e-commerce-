@@ -1,8 +1,4 @@
-type ButtonProps = {
-    value: string|number;
-    onClick?: ()=> void;
-  };
-
+import { ButtonProps } from "../webData/Webdata"
 
 const Button:React.FC<ButtonProps> = ({value,onClick}) => {
   return (

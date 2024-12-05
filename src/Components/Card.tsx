@@ -1,20 +1,7 @@
 import React from 'react';
 import { MdOutlineStarRate } from 'react-icons/md';
+import { CardProps } from '../webData/Webdata';
 
-interface Product {
-  id: number;
-  image: string;
-  title: string;
-  price: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
-
-interface CardProps {
-  product: Product;
-}
 
 const Card: React.FC<CardProps> = ({ product }) => {
   return (

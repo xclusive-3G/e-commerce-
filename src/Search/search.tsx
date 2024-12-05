@@ -1,11 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../store/productSlice';
-
-interface SearchInterFace{
-  className: string;
-}
-
+import { SearchInterFace } from '../webData/Webdata';
 
 const SearchBar: React.FC<SearchInterFace> = ({className}) => {
   const dispatch = useDispatch();

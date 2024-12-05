@@ -1,7 +1,9 @@
+// import dependency
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '../store/Store';
-import { fetchProducts, setCurrentPage } from '../store/productSlice';
+import { fetchProducts } from '../webData/Webdata';
+import {  setCurrentPage } from '../store/productSlice';
 import { selectPaginatedProducts } from '../store/Selector';
 import Card from '../Components/Card';
 import Recommended from '../Recommend/Recommended';
@@ -9,6 +11,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import Modal from '../Modal/Modal'; // Import Modal Component
 
 const Products: React.FC = () => {
+  // section for redux toolkit
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector(selectPaginatedProducts);
   const status = useSelector((state: RootState) => state.products.status);
@@ -19,7 +22,7 @@ const Products: React.FC = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
-
+// section to get api data
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchProducts());
@@ -42,11 +45,14 @@ const Products: React.FC = () => {
 
   return (
     <div className="min-h-screen dark:bg-gray-950 bg-gray-50 text-black dark:text-white transition-colors duration-300">
+      {/* display recommendation button for men and women clothes etc */}
       <section className="md:w-full p-6 h-auto w-full mx-auto right-0">
         <Recommended />
+        {/* sort by rate and price section */}
         <div className="hidden md:flex">
           <Sidebar />
         </div>
+        {/* code to load data to a web */}
 
         {status === 'loading' ? (
           <p className="text-center items-center">Loading...</p>
@@ -59,6 +65,7 @@ const Products: React.FC = () => {
                 </div>
               ))}
             </div>
+            {/* pagination section */}
             <div className="flex justify-center mt-4">
               {Array.from({ length: totalPages }, (_, index) => (
                 <button
@@ -76,7 +83,7 @@ const Products: React.FC = () => {
           </>
         )}
       </section>
-
+{/* modal section */}
       
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         {selectedProduct && (
