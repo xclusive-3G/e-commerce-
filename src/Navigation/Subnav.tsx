@@ -1,7 +1,6 @@
 import React from 'react'
 import { BsFilterSquareFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
-import Categories from '../Sidebar/Categories/Categories';
 import Sidebar from '../Sidebar/Sidebar';
 
 const Subnav: React.FC = () => {
