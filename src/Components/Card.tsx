@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
       <img
         src={product.image}
         alt={product.title}
-        className="w-full h-56 object-cover rounded-t-lg hover:scale-105 hover:duration-200"
+        className="w-full h-56 object-cover rounded-t-lg hover:scale-95 hover:duration-200"
       />
       <div className="p-4 ">
         <p className="font-bold text-lg line-clamp-2 md:truncate">{product.title}</p>
