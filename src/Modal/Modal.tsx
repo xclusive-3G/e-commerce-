@@ -11,11 +11,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white dark:bg-gray-900 dark:text-white w-11/12 max-w-lg rounded-lg shadow-lg p-6">
+    <div onClick={onClose} className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div  className="bg-white dark:bg-gray-950 dark:text-white w-11/12 max-w-lg rounded-lg shadow-lg p-6">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
+          className="absolute top-4 right-4 text-white  hover:text-gray-800 dark:hover:text-white"
         >
           <IoClose size={30} />
         </button>

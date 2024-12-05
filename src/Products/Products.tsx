@@ -162,7 +162,7 @@ const Products: React.FC = () => {
                   onClick={() => handlePageChange(index + 1)}
                   className={`px-4 py-2 mx-1 ${
                     currentPage === index + 1
-                      ? 'bg-blue-500 text-white'
+                      ? 'bg-blue-500 text-black '
                       : 'bg-gray-200'
                   } rounded`}
                 >
@@ -178,16 +178,17 @@ const Products: React.FC = () => {
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         {selectedProduct && (
           <div className=''>
+            <img
+              src={selectedProduct.image}
+              alt={selectedProduct.title}
+              className="mt-4 w-auto h-64 md:h-96 object-cover rounded-md"
+            />
             <h2 className="text-lg font-bold">{selectedProduct.title}</h2>
             <p className="mt-2 text-gray-600 dark:text-gray-300">
               Price: ${selectedProduct.price.toFixed(2)}
             </p>
             <p className="mt-2">{selectedProduct.description}</p>
-            <img
-              src={selectedProduct.image}
-              alt={selectedProduct.title}
-              className="mt-4 w-full h-64 object-cover rounded-md"
-            />
+            
           </div>
         )}
       </Modal>
