@@ -10,7 +10,7 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="px-1 my-6">
       <input
         type="text"
         placeholder="Search products..."

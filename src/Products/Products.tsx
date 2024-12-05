@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '../store/Store';
 import { fetchProducts, setCurrentPage } from '../store/productSlice';
 import { selectPaginatedProducts } from '../store/Selector';
 import Card from '../Components/Card';
 import Recommended from '../Recommend/Recommended';
+import Sidebar from '../Sidebar/Sidebar';
 
 const Products: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -15,24 +16,51 @@ const Products: React.FC = () => {
   const itemsPerPage = useSelector((state: RootState) => state.products.itemsPerPage);
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
 
+  // State for dark mode
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'dark';
+  });
+
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchProducts());
     }
   }, [dispatch, status]);
 
+  // Handle theme toggle
+  const toggleDarkMode = () => {
+    setIsDarkMode((prev) => !prev);
+  };
+
+  // Update the HTML class for dark mode
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
   const handlePageChange = (page: number) => {
     dispatch(setCurrentPage(page));
   };
 
   return (
-    <section className="md:w-10/12 h-auto w-full right-0 absolute">
-      <div className="mb-4 flex justify-between">
-        
+    <div className="min-h-screen dark:bg-gray-950 bg-gray-50 text-black dark:text-white transition-colors duration-300">
+      
+
+
+
+      <section className="md:w-full p-6 h-auto w-full mx-auto  right-0">
+        <Recommended />
+        <div className="hidden md:flex">
+        <Sidebar />
       </div>
 
-      <div className="grid w-full justify-center">
-        <Recommended />
         {status === 'loading' ? (
           <p className="text-center items-center">Loading...</p>
         ) : (
@@ -59,8 +87,8 @@ const Products: React.FC = () => {
             </div>
           </>
         )}
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

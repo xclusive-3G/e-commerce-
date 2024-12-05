@@ -1,5 +1,5 @@
 import { FaShoppingCart } from "react-icons/fa";
-
+import { CiDark } from "react-icons/ci";
 
 interface NavItem {
     id: string | number; // Replace with the actual type for `id`
@@ -13,9 +13,6 @@ export const NavData: NavItem[] = [
         title: <FaShoppingCart size={20} className='mx-2' />,
         link:"#"
     },
-    {
-        id: 2,
-        title: "Logout",
-        link:"#"
-    }
+    
 ]
+

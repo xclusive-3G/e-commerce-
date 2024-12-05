@@ -1,41 +1,62 @@
-import React, { useState } from 'react'
-import { CiMenuFries } from "react-icons/ci";
+import React, { useEffect, useState } from 'react'
 import { NavData } from '../webData/Webdata';
-import { IoMdClose } from "react-icons/io";
-// import Input from '../Components/Input';
-import { FaSearch } from "react-icons/fa";
-// import Button from '../Components/Button';
 import Search from '../Search/search';
 
 
 const NavBar: React.FC = () => {
-    const [nav, setNav] = useState(false)
+    const [darkMode, setDarkMode] = useState(() => {
+        // Persist theme in localStorage
+        const storedTheme = localStorage.getItem('theme');
+        return storedTheme === 'dark';
+    });
+
+    // Toggle theme
+    const toggleDarkMode = () => {
+        setDarkMode((prev) => !prev);
+    };
+
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    }, [darkMode]);
     return (
         <>
-            <div className=' justify-between text-white items-center flex bg-slate-500  z-50 w-full '>
+            <div className=' justify-between text-white items-center flex bg-gray-500 dark:bg-gray-950  z-50 w-full '>
                 {/* Logo */}
                 <div className=' p-4 font-signature text-2xl'>
                     Sekani Store
                 </div>
                 {/* search input button */}
-               <Search />
+                {/* <Recommended/> */}
 
                 <div className='flex p-4'>
+                    <Search />
                     {/* items on the left */}
-                    <ul className='flex p-4 cursor-pointer'>
-                        <li className='flex md:hidden mx-2'>
-
-                            <FaSearch size={20} className=' ' />
-                        </li>
+                    <ul className='flex p-4 cursor-pointer m-2'>
+                        
                         {NavData.map(({ id, title }) => (
-                            <li key={id} className='px-2 hidden md:flex'>
+                            <li key={id} className='p-3 hidden md:flex '>
                                 <a href="#">{title}</a>
                             </li>
                         ))}
+                        <li>
+                        <button
+                                onClick={toggleDarkMode}
+                                className="px-4 py-2  text-white rounded-md bg-green-500 font-medium"
+                            >
+                                {darkMode ? 'Light Mode' : 'Dark Mode'}
+                            </button>
+                        </li>
+                        
+                            
+                        
 
-                        <div onClick={() => setNav(!nav)} className='flex md:hidden'>
-                            {nav ? <IoMdClose size={25} /> : <CiMenuFries size={25} />}
-                        </div>
+                        
                     </ul>
                 </div>
             </div>
