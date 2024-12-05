@@ -31,8 +31,7 @@ const NavBar: React.FC = () => {
                 <div className=' p-4 font-signature text-2xl'>
                     Sekani Store
                 </div>
-                {/* search input button */}
-                {/* <Recommended/> */}
+                
 
                 <div className='flex p-4'>
                     <div className='py-6'>
@@ -54,12 +53,7 @@ const NavBar: React.FC = () => {
                             >
                                 {darkMode ? 'Light Mode' : 'Dark Mode'}
                             </button>
-                        </li>
-                        
-                            
-                        
-
-                        
+                        </li>   
                     </ul>
                 </div>
             </div>

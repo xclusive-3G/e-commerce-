@@ -1,7 +1,4 @@
 import React from 'react'
-// import Categories from './Categories/Categories'
-// import Price from './Price/Price'
-// import Button from '../Components/Button'
 import Input from '../Components/Input'
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store/Store';
@@ -14,7 +11,7 @@ const Sidebar: React.FC = () => {
     dispatch(setSortBy(criteria));
   };
   return (
-    <div className='w-full flex float-right items-center px-6  pt-10 dark:text-white '>
+    <div className='w-full flex float-right items-center px-6   dark:text-white '>
       
       <h2 className=' font-bold text-lg'>Sort Items</h2>
       <label className='my-3'>
