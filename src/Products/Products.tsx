@@ -1,87 +1,63 @@
-// import React, { useEffect, useState } from 'react';
-// import Recommended from '../Recommend/Recommended';
-// import Card from '../Components/Card';
-// import axios from 'axios';
-
-// interface ProductsInterface {
-//   id: number;
-//   image: string;
-//   title: string;
-//   price: number;
-//   rating: {
-//     rate: number;
-//     count: number;
-//   };
-// }
-
-// const Products: React.FC = () => {
-//   const [products, setProducts] = useState<ProductsInterface[]>([]);
-
-//   // Fetch products from API
-//   useEffect(() => {
-//     const fetchProducts = async () => {
-//       try {
-//         const response = await axios.get('https://fakestoreapi.com/products');
-//         setProducts(response.data);
-//       } catch (error) {
-//         console.error('Error fetching products', error);
-//       }
-//     };
-
-//     fetchProducts(); // Call the function here
-//   }, []);
-
-//   return (
-//     <section className="md:w-10/12 h-auto w-full right-0 absolute">
-//       <div className="grid w-full justify-center">
-//         <Recommended />
-//         {/* Segment for cards */}
-//         <div className="grid gap-4 p-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-//           {products.map((product) => (
-//             <Card key={product.id} product={product} />
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Products;
-
-
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { AppDispatch } from '../store/Store';
-import { fetchProducts } from '../store/productSlice';
-import { selectFilteredProducts } from '../store/Selector';
+import { AppDispatch, RootState } from '../store/Store';
+import { fetchProducts, setCurrentPage } from '../store/productSlice';
+import { selectPaginatedProducts } from '../store/Selector';
 import Card from '../Components/Card';
 import Recommended from '../Recommend/Recommended';
-// import SearchBar from '../Search/search';
 
 const Products: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>(); // Correctly type dispatch
-  const products = useSelector(selectFilteredProducts);
-  const status = useSelector((state: any) => state.products.status);
+  const dispatch = useDispatch<AppDispatch>();
+  const products = useSelector(selectPaginatedProducts);
+  const status = useSelector((state: RootState) => state.products.status);
+  const currentPage = useSelector((state: RootState) => state.products.currentPage);
+  const totalProducts = useSelector((state: RootState) => state.products.products.length);
+  const itemsPerPage = useSelector((state: RootState) => state.products.itemsPerPage);
+  const totalPages = Math.ceil(totalProducts / itemsPerPage);
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchProducts()); // No more type errors
+      dispatch(fetchProducts());
     }
   }, [dispatch, status]);
 
+  const handlePageChange = (page: number) => {
+    dispatch(setCurrentPage(page));
+  };
+
   return (
-    <section className="w-full md:w-10/12 h-auto  right-0 absolute">
+    <section className="md:w-10/12 h-auto w-full right-0 absolute">
+      <div className="mb-4 flex justify-between">
+        
+      </div>
+
       <div className="grid w-full justify-center">
-        {/* segment for recormended */}
         <Recommended />
         {status === 'loading' ? (
           <p className="text-center items-center">Loading...</p>
         ) : (
-          <div className="grid gap-4 p-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {products.map((product) => (
-              <Card key={product.id} product={product} />
-            ))}
-          </div>
+          <>
+            <div className="grid gap-4 p-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {products.map((product) => (
+                <Card key={product.id} product={product} />
+              ))}
+            </div>
+            <div className="flex justify-center mt-4">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePageChange(index + 1)}
+                  className={`px-4 py-2 mx-1 ${
+                    currentPage === index + 1
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-200'
+                  } rounded`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </section>

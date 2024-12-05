@@ -1,12 +1,12 @@
-import React from 'react'
 type ButtonProps = {
-    value: any;
+    value: string|number;
+    onClick?: ()=> void;
   };
 
 
-const Button:React.FC<ButtonProps> = ({value}) => {
+const Button:React.FC<ButtonProps> = ({value,onClick}) => {
   return (
-    <button className=' px-4 py-2 rounded-sm shadow-md m-1 font-medium hover:bg-[rgba(0,0,0,0.1)] hover:font-bold hover:scale-105 hover:duration-200'>{value}</button>
+    <button onClick={onClick} className=' px-4 py-2 rounded-sm shadow-md m-1 font-medium hover:bg-[rgba(0,0,0,0.1)] hover:font-bold hover:scale-105 hover:duration-200'>{value}</button>
   )
 }
 
