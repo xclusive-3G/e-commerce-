@@ -29,7 +29,7 @@
 //   }, [dispatch, status]);
 
 //   // Handle theme toggle
-  
+
 
 //   // Update the HTML class for dark mode
 //   // useEffect(() => {
@@ -49,7 +49,7 @@
 
 //   return (
 //     <div className="min-h-screen dark:bg-gray-950 bg-gray-50 text-black dark:text-white transition-colors duration-300">
-      
+
 
 
 
@@ -160,11 +160,10 @@ const Products: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => handlePageChange(index + 1)}
-                  className={`px-4 py-2 mx-1 ${
-                    currentPage === index + 1
+                  className={`px-4 py-2 mx-1 ${currentPage === index + 1
                       ? 'bg-blue-500 text-black '
                       : 'bg-gray-200'
-                  } rounded`}
+                    } rounded`}
                 >
                   {index + 1}
                 </button>
@@ -175,23 +174,43 @@ const Products: React.FC = () => {
       </section>
 
       {/* Modal for Product Details */}
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+      {/* <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         {selectedProduct && (
           <div className=''>
             <img
               src={selectedProduct.image}
               alt={selectedProduct.title}
-              className="mt-4 w-auto h-64 md:h-96 object-cover rounded-md"
+              className="mt-4 w-auto h-80   items-center object-cover rounded-md"
             />
             <h2 className="text-lg font-bold">{selectedProduct.title}</h2>
-            <p className="mt-2 text-gray-600 dark:text-gray-300">
+            <p className="mt-2 text-black dark:text-black">
               Price: ${selectedProduct.price.toFixed(2)}
             </p>
-            <p className="mt-2">{selectedProduct.description}</p>
+            <p className="mt-2 text-black dark:text-black">{selectedProduct.description}</p>
             
           </div>
         )}
+      </Modal> */}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        {selectedProduct && (
+          <div>
+            <div className="flex justify-center items-center mt-6">
+              <img
+                src={selectedProduct.image}
+                alt={selectedProduct.title}
+                className="w-full h-64 object-contain rounded-md"
+              />
+            </div>
+            <h2 className="text-lg font-bold text-center">{selectedProduct.title}</h2>
+            <p className="mt-2 text-gray-600 dark:text-gray-300 text-center">
+              Price: ${selectedProduct.price.toFixed(2)}
+            </p>
+            <p className="mt-4 text-center">{selectedProduct.description}</p>
+
+          </div>
+        )}
       </Modal>
+
     </div>
   );
 };
