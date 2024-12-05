@@ -177,7 +177,7 @@ const Products: React.FC = () => {
       {/* Modal for Product Details */}
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         {selectedProduct && (
-          <div>
+          <div className=''>
             <h2 className="text-lg font-bold">{selectedProduct.title}</h2>
             <p className="mt-2 text-gray-600 dark:text-gray-300">
               Price: ${selectedProduct.price.toFixed(2)}
