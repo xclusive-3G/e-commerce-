@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '../store/Store';
 import { fetchProducts, setCurrentPage } from '../store/productSlice';
@@ -17,10 +17,10 @@ const Products: React.FC = () => {
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
 
   // State for dark mode
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
-  });
+  // const [isDarkMode, setIsDarkMode] = useState(() => {
+  //   const savedTheme = localStorage.getItem('theme');
+  //   return savedTheme === 'dark';
+  // });
 
   useEffect(() => {
     if (status === 'idle') {
@@ -29,21 +29,19 @@ const Products: React.FC = () => {
   }, [dispatch, status]);
 
   // Handle theme toggle
-  const toggleDarkMode = () => {
-    setIsDarkMode((prev) => !prev);
-  };
+  
 
   // Update the HTML class for dark mode
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDarkMode) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDarkMode]);
+  // useEffect(() => {
+  //   const root = document.documentElement;
+  //   if (isDarkMode) {
+  //     root.classList.add('dark');
+  //     localStorage.setItem('theme', 'dark');
+  //   } else {
+  //     root.classList.remove('dark');
+  //     localStorage.setItem('theme', 'light');
+  //   }
+  // }, [isDarkMode]);
 
   const handlePageChange = (page: number) => {
     dispatch(setCurrentPage(page));
