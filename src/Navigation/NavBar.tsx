@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { CiMenuFries } from "react-icons/ci";
 import { NavData } from '../webData/Webdata';
 import { IoMdClose } from "react-icons/io";
-import Input from '../Components/Input';
+// import Input from '../Components/Input';
 import { FaSearch } from "react-icons/fa";
-import Button from '../Components/Button';
+// import Button from '../Components/Button';
+import Search from '../Search/search';
 
 
 const NavBar: React.FC = () => {
@@ -17,10 +18,7 @@ const NavBar: React.FC = () => {
                     Sekani Store
                 </div>
                 {/* search input button */}
-                <div className='hidden md:flex'>
-                    <Input placeholder="search" type='text' className='px-3 rounded-lg text-black  '/>
-                    <Button value={<FaSearch size={20} className='' />}/>
-                </div>
+               <Search />
 
                 <div className='flex p-4'>
                     {/* items on the left */}

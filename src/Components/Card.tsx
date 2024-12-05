@@ -25,12 +25,13 @@ const Card: React.FC<CardProps> = ({ product }) => {
         className="w-full h-56 object-cover rounded-t-lg"
       />
       <div className="p-4">
-        <p className="font-bold text-lg truncate">{product.title}</p>
+        <p className="font-bold text-lg line-clamp-2">{product.title}</p>
         <p className="font-medium my-2 text-gray-700">
           <span>$</span>
           {product.price.toFixed(2)}
         </p>
         <p className="flex items-center text-yellow-500">
+          {/* star rating */}
           {[...Array(5)].map((_, index) => (
             <MdOutlineStarRate
               key={index}

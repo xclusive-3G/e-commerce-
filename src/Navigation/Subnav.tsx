@@ -8,7 +8,8 @@ const Subnav: React.FC = () => {
         <div>
             <div className=' justify-between flex  md:hidden'>
                 <div className='flex p-1 cursor-pointer'>
-                    <span className=' text-lg font-semibold'>Filter</span> <span><BsFilterSquareFill size={20} className='mx-2 mt-2 ' /></span>
+                    <span className=' text-lg font-semibold'>Filter</span>
+                     <span><BsFilterSquareFill size={20} className='mx-2 mt-2 ' /></span>
                 </div>
                 <div className='p-4  flex cursor-pointer'>
                     <FaShoppingCart size={20} className='mx-2' />
@@ -18,8 +19,6 @@ const Subnav: React.FC = () => {
             {/* .....side bar displayed here..... */}
             <div className='hidden md:flex'>
             <Sidebar/>
-            {/* <Categories/> */}
-            
             </div>
         </div>
     )

@@ -1,5 +1,4 @@
 import React from 'react'
-import Input from '../Components/Input'
 import Categories from './Categories/Categories'
 import Price from './Price/Price'
 
