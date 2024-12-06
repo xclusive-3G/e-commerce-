@@ -23,7 +23,7 @@ const Products: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
-  
+
 // section to get api data
   useEffect(() => {
     if (status === 'idle') {
@@ -52,7 +52,7 @@ const Products: React.FC = () => {
         <Recommended />
         {/* sort by rate and price section */}
         <div className="hidden md:flex">
-          <Sidebar />
+          <Sidebar className="w-full flex float-right items-center px-6   dark:text-white "/>
         </div>
         {/* code to load data to a web */}
 
