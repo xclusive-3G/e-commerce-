@@ -18,7 +18,7 @@ const Sidebar: React.FC<className> = ({className}) => {
   return (
     <div className={className}>
       
-      <h2 className=' font-bold text-lg'>Sort Items</h2>
+      <h2 className=' font-bold text-lg'>Sort Items:</h2>
       <label className='my-3'>
       <Input type='radio' name='sort' className='mx-2 ' onClick={() => handleSort('price')}/>
           <span className='py-3 font-medium'>Sort By Price</span>
