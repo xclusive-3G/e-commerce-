@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BsFilterSquareFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import SearchBar from '../Search/search';
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../Sort/Sort';
 import { IoClose } from "react-icons/io5";
 
 
@@ -17,6 +17,7 @@ const Subnav: React.FC = () => {
                     <span className=' text-lg font-semibold'>Filter</span>
                     <span><BsFilterSquareFill size={20} className=' m-1 ' onClick={() => setSortBy(!sortBy)} /></span>
                 </div>
+                {/* display sorting to nav for mobile */}
                 {sortBy && <div className='flex flex-col  absolute  
             left-0 w-full h-auto bg-gradient-to-b my-auto from-black to-gray-500 text-white'>
                     <p className='float-right flex justify-end p-2 cursor-pointer' onClick={()=>setSortBy(!sortBy)}><IoClose size={20} /></p>

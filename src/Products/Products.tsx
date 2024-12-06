@@ -7,7 +7,7 @@ import {  setCurrentPage } from '../store/productSlice';
 import { selectPaginatedProducts } from '../store/Selector';
 import Card from '../Components/Card';
 import Recommended from '../Recommend/Recommended';
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../Sort/Sort';
 import Modal from '../Modal/Modal'; // Import Modal Component
 
 const Products: React.FC = () => {
