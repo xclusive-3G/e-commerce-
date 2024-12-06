@@ -19,7 +19,9 @@ const Products: React.FC = () => {
   const totalProducts = useSelector((state: RootState) => state.products.products.length);
   const itemsPerPage = useSelector((state: RootState) => state.products.itemsPerPage);
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
+  
 
+  // state for modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
@@ -30,11 +32,11 @@ const Products: React.FC = () => {
       dispatch(fetchProducts());
     }
   }, [dispatch, status]);
-
+  // function for page change
   const handlePageChange = (page: number) => {
     dispatch(setCurrentPage(page));
   };
-
+  // function for modal
   const handleOpenModal = (product: any) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
