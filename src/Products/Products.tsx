@@ -22,6 +22,8 @@ const Products: React.FC = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
+  
 // section to get api data
   useEffect(() => {
     if (status === 'idle') {
