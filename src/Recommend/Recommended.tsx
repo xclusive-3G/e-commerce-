@@ -18,6 +18,7 @@ const Recommended: React.FC = () => {
       <Button value="Women's Clothing" onClick={() => handleSort("women's clothing")} />
       <Button value="Jewelery" onClick={() => handleSort('jewelery')} />
       <Button value="Electronics" onClick={() => handleSort('electronics')} />
+        
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Sidebar: React.FC = () => {
   return (
     <div className='w-full flex float-right items-center px-6   dark:text-white '>
       
-      <h2 className=' font-bold text-lg'>Sort Items</h2>
+      <h2 className=' font-bold text-lg '>Sort Items</h2>
       <label className='my-3'>
       <Input type='radio' name='sort' className='mx-2' onClick={() => handleSort('price')}/>
           <span className='p-3 font-medium'>Sort By Price</span>

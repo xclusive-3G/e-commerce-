@@ -1,6 +1,5 @@
 import NavBar from './Navigation/NavBar';
 import Products from './Products/Products'
-// import Recommended from './Recommend/Recommended';
 import Subnav from './Navigation/Subnav';
 
 
