@@ -1,6 +1,8 @@
 import React from 'react';
 import { MdOutlineStarRate } from 'react-icons/md';
 import { CardProps } from '../webData/Webdata';
+import { FaCartShopping } from "react-icons/fa6";
+import Button from './Button';
 
 
 const Card: React.FC<CardProps> = ({ product }) => {
@@ -17,6 +19,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
           <span>$</span>
           {product.price.toFixed(2)}
         </p>
+        <div className='justify-between flex'>
         <p className="flex items-center text-yellow-500">
           {/* star rating */}
           {[...Array(5)].map((_, index) => (
@@ -26,6 +29,9 @@ const Card: React.FC<CardProps> = ({ product }) => {
             />
           ))}
         </p>
+        <p><Button value="Buy Now" /></p>
+        </div>
+        
       </div>
     </div>
   );
