@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { ModalProps } from '../webData/Webdata';
 
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+const Modal: React.FC<ModalProps> = React.memo(({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
@@ -19,6 +19,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Modal;

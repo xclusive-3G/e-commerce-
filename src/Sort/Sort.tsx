@@ -9,7 +9,7 @@ interface className{
 }
 
 
-const Sidebar: React.FC<className> = ({className}) => {
+const Sidebar: React.FC<className> = React.memo(({className}) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleSort = (criteria: 'price' | 'rating') => {
@@ -29,6 +29,6 @@ const Sidebar: React.FC<className> = ({className}) => {
         </label>
     </div>
   )
-}
+})
 
 export default Sidebar

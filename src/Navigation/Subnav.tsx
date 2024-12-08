@@ -7,7 +7,7 @@ import { IoClose } from "react-icons/io5";
 
 
 
-const Subnav: React.FC = () => {
+const Subnav: React.FC = React.memo(() => {
     const [sortBy, setSortBy] = useState(false)
 
     return (
@@ -19,7 +19,7 @@ const Subnav: React.FC = () => {
                 </div>
                 {/* display sorting to nav for mobile */}
                 {sortBy && <div className='flex flex-col  absolute  
-            left-0 w-full h-auto bg-gradient-to-b my-auto from-black to-gray-500 text-white'>
+            left-0 w-full h-auto bg-gradient-to-b my-auto from-black to-gray-900 text-white z-40'>
                     <p className='float-right flex justify-end p-2 cursor-pointer' onClick={()=>setSortBy(!sortBy)}><IoClose size={20} /></p>
                     <Sidebar className="grid w-full  px-6   dark:text-white " /></div>}
 
@@ -37,6 +37,6 @@ const Subnav: React.FC = () => {
 
         </div>
     )
-}
+});
 
 export default Subnav

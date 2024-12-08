@@ -10,7 +10,7 @@ import Recommended from '../Recommend/Recommended';
 import Sidebar from '../Sort/Sort';
 import Modal from '../Modal/Modal'; // Import Modal Component
 
-const Products: React.FC = () => {
+const Products: React.FC = React.memo(() => {
   // section for redux toolkit
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector(selectPaginatedProducts);
@@ -111,6 +111,6 @@ const Products: React.FC = () => {
 
     </div>
   );
-};
+})
 
 export default Products;

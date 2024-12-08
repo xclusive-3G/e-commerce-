@@ -1,11 +1,10 @@
 import React from 'react';
 import { MdOutlineStarRate } from 'react-icons/md';
 import { CardProps } from '../webData/Webdata';
-import { FaCartShopping } from "react-icons/fa6";
 import Button from './Button';
 
 
-const Card: React.FC<CardProps> = ({ product }) => {
+const Card: React.FC<CardProps> = React.memo(({ product }) => {
   return (
     <div className="shadow-md rounded-lg bg-white w-full h-auto cursor-pointer dark:bg-gray-600 dark:text-white hover:shadow-lg transition-shadow duration-200">
       <img
@@ -35,6 +34,6 @@ const Card: React.FC<CardProps> = ({ product }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Card;

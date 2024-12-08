@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store/Store';
 import { setSortBy } from '../store/productSlice';
 
-const Recommended: React.FC = () => {
+const Recommended: React.FC = React.memo(() => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleSort = (criteria: "men's clothing" | 'jewelery' | 'electronics' | "women's clothing" | '') => {
@@ -21,6 +21,6 @@ const Recommended: React.FC = () => {
         
     </div>
   );
-};
+});
 
 export default Recommended;

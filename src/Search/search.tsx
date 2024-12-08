@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../store/productSlice';
 import { SearchInterFace } from '../webData/Webdata';
 
-const SearchBar: React.FC<SearchInterFace> = ({className}) => {
+const SearchBar: React.FC<SearchInterFace> = React.memo(({className}) => {
   const dispatch = useDispatch();
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchTerm(event.target.value));
@@ -20,6 +20,6 @@ const SearchBar: React.FC<SearchInterFace> = ({className}) => {
       
     </div>
   );
-};
+});
 
 export default SearchBar;
